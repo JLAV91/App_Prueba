@@ -27,6 +27,7 @@ fun HomeLog(navController: NavController) {
 
         Spacer(modifier = Modifier.width(16.dp))
 
+
         CajaLog(navController = navController)
     }
 }
