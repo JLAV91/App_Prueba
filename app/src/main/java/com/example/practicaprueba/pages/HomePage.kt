@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -29,6 +30,7 @@ import com.example.practicaprueba.components.CardConImagen
 import com.example.practicaprueba.components.CardConImagen2
 import com.example.practicaprueba.components.CardSoloImagen
 import com.example.practicaprueba.components.Scrolling
+import com.example.practicaprueba.components.imgLogo
 
 
 @Composable
@@ -42,14 +44,8 @@ fun HomePage(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // 🔹 Título principal
-        Text(
-            "FinTrack",
-            modifier = Modifier
-                .fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            fontSize = 40.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.Gray,
+        imgLogo(
+            modifier = Modifier.size(100.dp)
         )
 
         // 🔹 Card principal con su contenido

@@ -25,7 +25,9 @@ fun HomeLog(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        imgLogo()
+        imgLogo(
+            modifier = Modifier.size(300.dp)
+        )
 
 
 

@@ -24,6 +24,7 @@ fun imgLogo(modifier: Modifier = Modifier){
             .fillMaxWidth()
             .padding(0.dp)
             .background(Color.White),
+
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
 
