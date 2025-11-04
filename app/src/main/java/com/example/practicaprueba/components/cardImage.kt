@@ -34,7 +34,7 @@ fun CardSoloImagen(
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
+                .height(201.dp),
             contentScale = ContentScale.Crop // recorta y llena el espacio
         )
     }
