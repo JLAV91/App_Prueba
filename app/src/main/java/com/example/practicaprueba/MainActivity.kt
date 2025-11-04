@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.practicaprueba.components.Scrolling
 import com.example.practicaprueba.ui.theme.PracticaPruebaTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,6 +22,7 @@ class MainActivity : ComponentActivity() {
             PracticaPruebaTheme {
                 PantallaInicial()
             }
+
         }
     }
 }

@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import com.example.practicaprueba.R
 import com.example.practicaprueba.components.CardConImagen
 import com.example.practicaprueba.components.CardConImagen2
+import com.example.practicaprueba.components.Scrolling
 
 
 @Composable
@@ -40,7 +41,6 @@ fun HomePage(modifier: Modifier = Modifier) {
         Text(
             "FinTrack",
             modifier = Modifier
-                .background(Color.White)
                 .fillMaxWidth()
                 ,
             textAlign = TextAlign.Center,
@@ -58,7 +58,6 @@ fun HomePage(modifier: Modifier = Modifier) {
                     end = 20.dp,
                     bottom = 20.dp
                 )
-                .background(Color.White)
                 .weight(1f),
         ) {
             CardConImagen2(
@@ -70,6 +69,7 @@ fun HomePage(modifier: Modifier = Modifier) {
                 ultimoTexto = "Texo nuevo",
                 modifier = Modifier
                     .padding(2.dp)
+                    .background(Color.White)
             )
             CardConImagen2(
                 imagen = painterResource(
