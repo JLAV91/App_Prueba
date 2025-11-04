@@ -9,18 +9,16 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.practicaprueba.ItemsNav
 import com.example.practicaprueba.pages.HomePage
-import com.example.practicaprueba.pages.HomeLog
-import com.example.practicaprueba.pages.NotificationsPage
 import com.example.practicaprueba.pages.SettingsPage
-
+import com.example.practicaprueba.pages.NotificationsPage
 
 @Composable
 fun NavBar() {
-    val navItemsLis = listOf(
+    val navController = rememberNavController()
+    val navItemsList = listOf(
         ItemsNav("Inicio", Icons.Default.Home),
         ItemsNav("Configuración", Icons.Default.Settings),
         ItemsNav("Notificaciones", Icons.Default.Notifications)
@@ -32,7 +30,7 @@ fun NavBar() {
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
             NavigationBar {
-                navItemsLis.forEachIndexed { index, nav ->
+                navItemsList.forEachIndexed { index, nav ->
                     NavigationBarItem(
                         selected = selectedIndex == index,
                         onClick = { selectedIndex = index },
@@ -46,7 +44,7 @@ fun NavBar() {
         when (selectedIndex) {
             0 -> HomePage()
             1 -> SettingsPage()
-            2 -> NotificationsPage()
+            2 -> NotificationsPage(navController = navController)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.practicaprueba.pages
 
+import android.icu.number.Scale
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -11,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.practicaprueba.R
 import com.example.practicaprueba.components.CajaLog
+import com.example.practicaprueba.components.imgLogo
 
 @Composable
 fun HomeLog(navController: NavController) {
@@ -21,8 +23,9 @@ fun HomeLog(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        imgLogo()
 
-
+        Spacer(modifier = Modifier.width(16.dp))
 
         CajaLog(navController = navController)
     }
