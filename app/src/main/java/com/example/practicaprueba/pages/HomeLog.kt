@@ -27,8 +27,6 @@ fun HomeLog(navController: NavController) {
     ) {
         imgLogo()
 
-
-
         CajaLog(navController = navController)
     }
 }
