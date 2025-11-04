@@ -73,7 +73,7 @@ fun HomePage(modifier: Modifier = Modifier) {
 
                 // Texto largo con título
                 Text(
-                    text = "Un poco sobre nuestra compañía!",
+                    text = "Un poco sobre nuestra compañía!!",
                     textAlign = TextAlign.Center,
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
