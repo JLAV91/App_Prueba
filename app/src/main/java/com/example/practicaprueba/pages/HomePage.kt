@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.example.practicaprueba.R
 import com.example.practicaprueba.components.CardConImagen
 import com.example.practicaprueba.components.CardConImagen2
+import com.example.practicaprueba.components.CardSoloImagen
 import com.example.practicaprueba.components.Scrolling
 
 
@@ -63,28 +64,17 @@ fun HomePage(modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .verticalScroll(sScroll)
                     .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                // Dos cards con imagen
-                CardConImagen2(
-                    imagen = painterResource(id = R.drawable.investiga),
-                    titulo = "Título de la tarjeta",
-                    descripcion = "Descripción de la tarjeta",
-                    ultimoTexto = "Texto nuevo",
-                    modifier = Modifier.padding(4.dp)
-                )
 
-                CardConImagen2(
-                    imagen = painterResource(id = R.drawable.investiga),
-                    titulo = "Otra tarjeta",
-                    descripcion = "Descripción secundaria",
-                    ultimoTexto = "Texto adicional",
-                    modifier = Modifier.padding(4.dp)
+                CardSoloImagen(
+                    imagen = painterResource(id = R.drawable.investiga)
                 )
 
                 // Texto largo con título
                 Text(
                     text = "Un poco sobre nuestra compañía",
+                    textAlign = TextAlign.Center,
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFF1E88E5),
@@ -122,6 +112,7 @@ fun HomePage(modifier: Modifier = Modifier) {
                     fontSize = 16.sp,
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(horizontal = 20.dp)
                         .padding(bottom = 20.dp)
                 )
 
