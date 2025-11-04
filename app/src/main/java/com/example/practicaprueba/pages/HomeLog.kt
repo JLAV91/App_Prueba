@@ -21,14 +21,8 @@ fun HomeLog(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.logofin),
-            contentDescription = "Logo",
-            modifier = Modifier
-                .size(150.dp)
-                .padding(16.dp),
-            contentScale = ContentScale.FillWidth
-        )
+
+
 
         CajaLog(navController = navController)
     }
