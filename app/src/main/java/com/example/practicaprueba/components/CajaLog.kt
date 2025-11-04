@@ -46,7 +46,7 @@ fun CajaLog(navController: NavController, onLoginClick:(String, String)-> Unit =
         ) {
             Column(
                 modifier = Modifier
-                    .padding(24.dp)
+                    .padding(18.dp)
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
