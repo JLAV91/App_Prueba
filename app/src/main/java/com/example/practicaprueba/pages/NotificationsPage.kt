@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,14 +22,21 @@ fun NotificationsPage(navController: NavController, modifier: Modifier = Modifie
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White),
-        verticalArrangement = Arrangement.Center,
+            .background(Color.White)
+            .padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Logo en la parte superior
+        Spacer(modifier = Modifier.height(40.dp)) // margen superior opcional
         imgLogo()
 
-        Spacer(modifier = Modifier.height(10.dp))
+        // Espacio arriba que empuja el formulario al centro
+        Spacer(modifier = Modifier.weight(1f))
 
         Contacto(navController = navController)
+
+        // Espacio abajo
+        Spacer(modifier = Modifier.weight(1f))
     }
 }

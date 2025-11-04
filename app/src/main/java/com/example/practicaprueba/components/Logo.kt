@@ -31,9 +31,7 @@ fun imgLogo(modifier: Modifier = Modifier){
         Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de la app",
-            modifier = Modifier
-                .size(150.dp)
-                .padding(8.dp),
+            modifier = Modifier.size(150.dp),
             contentScale = ContentScale.Fit
         )
     }

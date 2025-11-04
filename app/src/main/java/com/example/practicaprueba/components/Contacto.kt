@@ -18,61 +18,44 @@ fun Contacto(navController: NavController) {
     val context = LocalContext.current
     var nombre by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var mensagge by remember { mutableStateOf("") }
+    var mensaje by remember { mutableStateOf("") }
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(0.dp)
-                .background(Color.White),
-
-
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            TextField(
-                value = nombre,
-                onValueChange = { nombre = it },
-                label = { Text("Nombre") },
-                singleLine = true
-            )
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            TextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Correo") },
-                singleLine = true,
-                visualTransformation = PasswordVisualTransformation()
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            TextField(
-                value = mensagge,
-                onValueChange = { mensagge = it },
-                label = { Text("Mensaje") },
-                singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
-                modifier = Modifier
-                    .height(30.dp)
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-
-            Button(onClick = {
-                Toast.makeText(
-                    context,
-                    "Mensaje enviado",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }) {
-                Text("Enviar mensaje")
+    // Elimina el Scaffold y usa solo una Column:
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        TextField(
+            value = nombre,
+            onValueChange = { nombre = it },
+            label = {
+                Text("Nombre")
             }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        TextField(
+            value = email,
+            onValueChange = { email = it },
+            label = {
+                Text("Correo")
+            }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        TextField(
+            value = mensaje,
+            onValueChange = { mensaje = it },
+            label = {
+                Text("Mensaje")
+            }
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Button(onClick = {
+            Toast.makeText(context, "Mensaje enviado", Toast.LENGTH_SHORT).show()
+        }) {
+            Text("Enviar mensaje")
         }
     }
 }
