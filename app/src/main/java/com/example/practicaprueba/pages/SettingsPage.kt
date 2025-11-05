@@ -26,6 +26,7 @@ fun SettingsPage(modifier: Modifier = Modifier) {
             .padding(top = 50.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
+
     ) {
         Text(
             "Biblioteca de Rick & morty",
