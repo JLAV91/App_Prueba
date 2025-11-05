@@ -27,6 +27,37 @@ fun HomeLog(navController: NavController) {
     ) {
         imgLogo()
 
-        CajaLog(navController = navController)
+        Image(
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Logo de fondo",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .graphicsLayer(
+                    scaleX = scale.value,
+                    scaleY = scale.value,
+                    alpha = alphaLogo.value
+                ),
+            contentScale = ContentScale.Fit
+        )
+
+
+        AnimatedVisibility(
+            visible = showLogin,
+            enter = fadeIn(animationSpec = tween(800))
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 32.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+
+                CajaLog(navController)
+            }
+        }
     }
 }
