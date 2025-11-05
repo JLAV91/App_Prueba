@@ -13,6 +13,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -27,12 +29,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 
 @Composable
-fun CajaLog(navController: NavController, onLoginClick:(String, String)-> Unit = {_, _-> }){
+fun CajaLog(navController: NavController, onLoginClick: (String, String) -> Unit = { _, _ -> }) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
+    // Variables para mensajes de error
+    var usernameError by remember { mutableStateOf<String?>(null) }
+    var passwordError by remember { mutableStateOf<String?>(null) }
 
     Box(
         modifier = Modifier
@@ -59,34 +65,101 @@ fun CajaLog(navController: NavController, onLoginClick:(String, String)-> Unit =
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-
+                // Campo usuario (correo)
                 OutlinedTextField(
                     value = username,
-                    onValueChange = { username = it },
-                    label = { Text("Usuario") },
-                    modifier = Modifier.fillMaxWidth()
+                    onValueChange = {
+                        username = it
+                        usernameError = null
+                    },
+                    label = { Text("Correo electrónico") },
+                    modifier = Modifier.fillMaxWidth(),
+                    isError = usernameError != null
                 )
+                if (usernameError != null) {
+                    Text(
+                        text = usernameError!!,
+                        color = androidx.compose.ui.graphics.Color.Red,
+                        fontSize = 12.sp,
+                        modifier = Modifier.align(Alignment.Start)
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(16.dp))
 
+
                 OutlinedTextField(
                     value = password,
-                    onValueChange = { password = it },
+                    onValueChange = {
+                        password = it
+                        passwordError = null
+                    },
                     label = { Text("Contraseña") },
                     visualTransformation = PasswordVisualTransformation(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    isError = passwordError != null
                 )
+                if (passwordError != null) {
+                    Text(
+                        text = passwordError!!,
+                        color = androidx.compose.ui.graphics.Color.Red,
+                        fontSize = 12.sp,
+                        modifier = Modifier.align(Alignment.Start)
+                    )
+                }
+
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
                     onClick = {
-                        navController.navigate("main")
-                        onLoginClick(username, password)},
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                {
-                    Text("entrar")
+
+                        val emailPattern = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
+                        var valido = true
+
+                        if (!emailPattern.matches(username)) {
+                            usernameError = "Ingrese un correo válido"
+                            valido = false
+                        }
+
+                        if (password.length < 6) {
+                            passwordError = "La contraseña debe tener al menos 6 caracteres"
+                            valido = false
+                        }
+
+                        if (valido) {
+                            navController.navigate("main")
+                            onLoginClick(username, password)
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Entrar")
+                }
+
+                TextButton(
+                    onClick = {
+                        navController.navigate("recuperar")
+                    }
+                ) {
+                    Text(
+                        text = "¿Has olvidado tu contraseña?",
+                        color = Color(0xFF1565C0),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+                TextButton(
+                    onClick = {
+                        navController.navigate("crear")
+                    }
+                ) {
+                    Text(
+                        text = "¿Eres nuevo? Crea tu cuenta",
+                        color = Color(0xFF1565C0),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Medium
+                    )
                 }
             }
         }
