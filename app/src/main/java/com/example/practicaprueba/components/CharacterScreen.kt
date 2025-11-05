@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
-import com.example.practicaprueba.viewmodel.CharacterViewModel
+import com.example.composables.ui.CharacterViewModel
 
 @Composable
 fun CharacterScreen(modifier: Modifier = Modifier, viewModel: CharacterViewModel = viewModel ()) {
