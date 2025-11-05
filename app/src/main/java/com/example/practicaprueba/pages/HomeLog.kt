@@ -1,33 +1,60 @@
 package com.example.practicaprueba.pages
 
-import android.icu.number.Scale
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.practicaprueba.R
 import com.example.practicaprueba.components.CajaLog
-import com.example.practicaprueba.components.imgLogo
 
 @Composable
 fun HomeLog(navController: NavController) {
-    Column(
+    var showLogin by remember { mutableStateOf(false) }
+    val scale = remember { Animatable(0.5f) }
+    val alphaLogo = remember { Animatable(1f) }
+
+    // Animaciones secuenciales
+    LaunchedEffect(Unit) {
+        // 1️⃣ Aparece y crece el logo
+        scale.animateTo(
+            targetValue = 1.3f,
+            animationSpec = tween(1200, easing = FastOutSlowInEasing)
+        )
+
+        // se hace tenue (como fondo)
+        alphaLogo.animateTo(
+            targetValue = 0.2f,
+            animationSpec = tween(1000, easing = LinearOutSlowInEasing)
+        )
+
+        // muestra el formulario
+        showLogin = true
+    }
+
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(18.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .background(Color.White)
     ) {
-        imgLogo()
-        CajaLog(navController = navController)
-        /*Image(
+        // Fondo: logo grande y tenue
+        Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de fondo",
             modifier = Modifier
@@ -40,7 +67,7 @@ fun HomeLog(navController: NavController) {
             contentScale = ContentScale.Fit
         )
 
-
+        // Caja de inicio de sesión que aparece después del logo
         AnimatedVisibility(
             visible = showLogin,
             enter = fadeIn(animationSpec = tween(800))
@@ -52,12 +79,13 @@ fun HomeLog(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
+                Spacer(modifier = Modifier.height(120.dp))
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-
+                // caja de login
                 CajaLog(navController)
             }
-        }*/
+        }
     }
 }
