@@ -7,11 +7,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import com.example.practicaprueba.viewmodel.CharacterViewModel
 
 @Composable
 fun CharacterScreen(modifier: Modifier = Modifier, viewModel: CharacterViewModel = viewModel ()) {

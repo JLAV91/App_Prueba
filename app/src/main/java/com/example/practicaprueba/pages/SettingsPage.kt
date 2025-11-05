@@ -1,7 +1,6 @@
 package com.example.practicaprueba.pages
 
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,7 +15,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.practicaprueba.components.CharacterScreen
-import com.example.practicaprueba.components.LocationScreen
 
 @Composable
 fun SettingsPage(modifier: Modifier = Modifier) {

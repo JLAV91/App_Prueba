@@ -1,16 +1,42 @@
-package com.example.practicaprueba.components
+package com.example.practicaprueba.viewmodel
 
-
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.practicaprueba.utils.ValidationUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
+
+class CajaLogViewModel : ViewModel() {
+
+    var username = mutableStateOf("")
+    var password = mutableStateOf("")
+
+    var usernameError = mutableStateOf<String?>(null)
+    var passwordError = mutableStateOf<String?>(null)
+
+    fun onUsernameChange(value: String) {
+        username.value = value
+        usernameError.value = null
+    }
+
+    fun onPasswordChange(value: String) {
+        password.value = value
+        passwordError.value = null
+    }
+
+    fun validarCampos(): Boolean {
+        usernameError.value = ValidationUtils.validarEmail(username.value)
+        passwordError.value = ValidationUtils.validarPassword(password.value)
+
+        return usernameError.value == null && passwordError.value == null
+    }
+}
 
 class CharacterViewModel : ViewModel() {
 
@@ -67,12 +93,14 @@ class CharacterViewModel : ViewModel() {
                     }
                 } else {
                     withContext(Dispatchers.Main) { // Cambia al contexto Main para manejar el error
-                        _errorMessage.value = "Error en la conexión: Código ${connection.responseCode}" // Muestra el código de error
+                        _errorMessage.value =
+                            "Error en la conexión: Código ${connection.responseCode}" // Muestra el código de error
                     }
                 }
             } catch (e: Exception) { // Captura cualquier excepción que ocurra durante la operación
                 withContext(Dispatchers.Main) { // Cambia al contexto Main para manejar el error
-                    _errorMessage.value = "Error al obtener los personajes: ${e.message}" // Muestra el mensaje de error
+                    _errorMessage.value =
+                        "Error al obtener los personajes: ${e.message}" // Muestra el mensaje de error
                 }
             }
         }
@@ -88,4 +116,3 @@ data class Character(
     val originName: String,
     val image: String // 🔹 URL de la imagen del personaje
 )
-
