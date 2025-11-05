@@ -19,8 +19,8 @@ fun NavBar() {
     val navController = rememberNavController()
     val navItemsList = listOf(
         ItemsNav("Inicio", Icons.Default.Home),
-        ItemsNav("Configuración", Icons.Default.Settings),
-        ItemsNav("Notificaciones", Icons.Default.Notifications)
+        ItemsNav("Rick&Morty", Icons.Default.Settings),
+        ItemsNav("Contacto", Icons.Default.Notifications)
     )
 
     var selectedIndex by remember { mutableIntStateOf(0) }
