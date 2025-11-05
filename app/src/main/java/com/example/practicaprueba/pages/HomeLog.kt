@@ -1,59 +1,31 @@
 package com.example.practicaprueba.pages
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.LinearOutSlowInEasing
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
+import android.icu.number.Scale
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.practicaprueba.R
 import com.example.practicaprueba.components.CajaLog
-
+import com.example.practicaprueba.components.imgLogo
 
 @Composable
 fun HomeLog(navController: NavController) {
-    var showLogin by remember { mutableStateOf(false) }
-    val scale = remember { Animatable(0.5f) }
-    val alphaLogo = remember { Animatable(1f) }
-
-
-    LaunchedEffect(Unit) {
-        //  Aparece y crece el logo
-        scale.animateTo(
-            targetValue = 1.6f,
-            animationSpec = tween(1200, easing = FastOutSlowInEasing)
-        )
-
-        //  Luego se hace tenue (como fondo)
-        alphaLogo.animateTo(
-            targetValue = 0.2f,
-            animationSpec = tween(1000, easing = LinearOutSlowInEasing)
-        )
-
-        // Finalmente muestra el formulario
-        showLogin = true
-    }
-
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .padding(18.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
+        imgLogo()
 
         Image(
             painter = painterResource(id = R.drawable.logo),
