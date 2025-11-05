@@ -22,8 +22,8 @@ fun imgLogo(modifier: Modifier = Modifier){
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(0.dp)
-            .background(Color.White),
+            .padding(0.dp),
+
 
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

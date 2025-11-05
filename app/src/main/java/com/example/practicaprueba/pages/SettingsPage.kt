@@ -17,15 +17,13 @@ import androidx.compose.ui.unit.sp
 fun SettingsPage(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxSize()
-            .background(Color.Blue),
+            .background(Color.White),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
+
     ) {
         Text(
-            "SettingsPage",
-            fontSize = 40.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.White
+            text = "¿Donce encontrarnos?"
         )
     }
 }
