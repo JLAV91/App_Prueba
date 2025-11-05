@@ -1,5 +1,4 @@
-package com.example.practicaprueba.components
-
+package com.example.composables.ui
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.State
@@ -40,7 +39,6 @@ class CharacterViewModel : ViewModel() {
         }
         return tempCharacters
     }
-
 
     fun fetchCharacters() {
         viewModelScope.launch(Dispatchers.IO) { // Lanza una corrutina en el contexto IO para realizar operaciones de red
@@ -86,6 +84,5 @@ data class Character(
     val species: String,
     val gender: String,
     val originName: String,
-    val image: String // 🔹 URL de la imagen del personaje
+    val image: String // 🔹 nuevo campo para la URL de la imagen
 )
-

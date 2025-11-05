@@ -51,7 +51,8 @@ fun HomeLog(navController: NavController) {
             .fillMaxSize()
             .background(Color.White)
     ) {
-
+        imgLogo()
+        CajaLog(navController = navController)
         Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de fondo",
