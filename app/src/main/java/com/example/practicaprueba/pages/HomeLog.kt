@@ -83,7 +83,7 @@ fun HomeLog(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Aquí va tu componente de caja de login
+
                 CajaLog(navController)
             }
         }
