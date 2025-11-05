@@ -29,7 +29,6 @@ import com.example.practicaprueba.components.CardConImagen
 import com.example.practicaprueba.components.CardConImagen2
 import com.example.practicaprueba.components.CardSoloImagen
 import com.example.practicaprueba.components.Scrolling
-import com.example.practicaprueba.components.imgLogo
 
 
 @Composable
@@ -43,7 +42,15 @@ fun HomePage(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // 🔹 Título principal
-        imgLogo()
+        Text(
+            "FinTrack",
+            modifier = Modifier
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            fontSize = 40.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = Color.Gray,
+        )
 
         // 🔹 Card principal con su contenido
         Card(
