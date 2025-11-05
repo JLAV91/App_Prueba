@@ -26,8 +26,8 @@ fun HomeLog(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
         imgLogo()
-
-        Image(
+        CajaLog(navController = navController)
+        /*Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de fondo",
             modifier = Modifier
@@ -58,6 +58,6 @@ fun HomeLog(navController: NavController) {
 
                 CajaLog(navController)
             }
-        }
+        }*/
     }
 }

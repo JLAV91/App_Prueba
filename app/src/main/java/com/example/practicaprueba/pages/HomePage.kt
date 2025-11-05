@@ -1,6 +1,6 @@
 package com.example.practicaprueba.pages
 
-import androidx.compose.foundation.background
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,10 +25,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.practicaprueba.R
-import com.example.practicaprueba.components.CardConImagen
-import com.example.practicaprueba.components.CardConImagen2
 import com.example.practicaprueba.components.CardSoloImagen
-import com.example.practicaprueba.components.Scrolling
+import com.example.practicaprueba.components.imgLogo
 
 
 @Composable
@@ -42,15 +40,7 @@ fun HomePage(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // 🔹 Título principal
-        Text(
-            "FinTrack",
-            modifier = Modifier
-                .fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            fontSize = 40.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.Gray,
-        )
+        imgLogo()
 
         // 🔹 Card principal con su contenido
         Card(
