@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.practicaprueba.viewmodel.CajaLogViewModel
+import androidx.compose.foundation.clickable
 
 @Composable
 fun CajaLog(
@@ -98,6 +99,29 @@ fun CajaLog(
                 ) {
                     Text("Entrar")
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = "Crear usuario",
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.clickable {
+                            navController.navigate("crear")
+                        }
+                    )
+                    Text(
+                        text = "Recuperar contraseña",
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.clickable {
+                            navController.navigate("recuperar_contrasena")
+                        }
+                    )
+                }
+
             }
         }
     }

@@ -42,7 +42,7 @@ fun HomePage(modifier: Modifier = Modifier) {
         // 🔹 Título principal
         imgLogo()
 
-        // 🔹 Card principal con su contenido
+        // Card principal con su contenido
         Card(
             modifier = Modifier
                 .padding(20.dp)
