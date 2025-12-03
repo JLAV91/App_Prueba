@@ -1,0 +1,35 @@
+# Fintrack - Aplicación de Prueba
+
+Fintrack es una aplicación móvil para Android, desarrollada en Kotlin, que sirve como un proyecto de demostración para la gestión de usuarios y la comunicación con una API REST. El proyecto está construido siguiendo las mejores prácticas de desarrollo Android y utiliza un stack tecnológico moderno centrado en Jetpack Compose.
+
+## 🚀 Características Clave
+
+*   **Interfaz 100% Declarativa**: La interfaz de usuario está desarrollada íntegramente con **Jetpack Compose**, el moderno toolkit de Google para construir UI nativas.
+*   **Arquitectura MVVM**: Se utiliza el patrón **Model-View-ViewModel** para separar la lógica de negocio del estado de la UI, utilizando `ViewModel` de Jetpack.
+*   **Navegación Integrada**: Gestión del flujo entre pantallas mediante **Navigation Compose**, permitiendo una navegación robusta y consciente del ciclo de vida.
+*   **Comunicación con API REST**: Realiza llamadas de red asíncronas para operaciones como registro y autenticación, utilizando **Retrofit** y **OkHttp**.
+*   **Asincronía con Corrutinas**: Manejo eficiente de operaciones en segundo plano (como llamadas de red) a través de **Corrutinas de Kotlin** y `viewModelScope`.
+*   **Carga de Imágenes Optimizada**: Integración de **Coil** para cargar y mostrar imágenes de manera asíncrona en los componentes de Compose.
+
+## 🛠️ Stack Tecnológico y Dependencias
+
+Este proyecto integra un conjunto de librerías modernas y recomendadas para el desarrollo en Android:
+
+*   **Lenguaje de Programación**: [Kotlin](https://kotlinlang.org/)
+*   **UI Toolkit**: [Jetpack Compose](https://developer.android.com/jetpack/compose) (`activity-compose`, `compose-bom`, `material3`).
+*   **Arquitectura**:
+    *   [ViewModel KTX](https://developer.android.com/topic/libraries/architecture/viewmodel): Para la lógica de UI y la gestión del estado.
+    *   [Lifecycle KTX](https://developer.android.com/jetpack/androidx/releases/lifecycle): Para la gestión de corrutinas en el ciclo de vida de los componentes.
+*   **Navegación**: [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) para una navegación declarativa entre pantallas.
+*   **Comunicación de Red**:
+    *   [Retrofit](https://square.github.io/retrofit/): Cliente HTTP para definir las llamadas a la API de forma declarativa.
+    *   [Gson Converter](https://github.com/google/gson): Para la serialización y deserialización de objetos JSON.
+    *   [OkHttp Logging Interceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor): Para depurar las llamadas de red, mostrando los *requests* y *responses* en Logcat.
+*   **Carga de Imágenes**: [Coil (Coil-kt)](https://coil-kt.github.io/coil/) para una carga de imágenes eficiente y optimizada para Compose.
+*   **Utilidades**: [Core KTX](https://developer.android.com/kotlin/ktx) para extensiones de Kotlin que simplifican el código.
+
+## ⚙️ Cómo Compilar y Ejecutar
+
+Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
+
+1.  **Clonar el Repositorio**
