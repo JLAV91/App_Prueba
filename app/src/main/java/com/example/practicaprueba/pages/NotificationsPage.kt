@@ -27,7 +27,7 @@ fun NotificationsPage(navController: NavController, modifier: Modifier = Modifie
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Logo en la parte superior
-        Spacer(modifier = Modifier.height(40.dp)) // margen superior opcional
+        Spacer(modifier = Modifier.height(40.dp))
         imgLogo()
 
         // Espacio arriba que empuja el formulario al centro

@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.practicaprueba.ItemsNav
 import com.example.practicaprueba.pages.HomePage
+import com.example.practicaprueba.pages.IndicadoresPage
 import com.example.practicaprueba.pages.SettingsPage
 import com.example.practicaprueba.pages.NotificationsPage
 
@@ -19,8 +20,8 @@ fun NavBar() {
     val navController = rememberNavController()
     val navItemsList = listOf(
         ItemsNav("Inicio", Icons.Default.Home),
-        ItemsNav("Configuración", Icons.Default.Settings),
-        ItemsNav("Notificaciones", Icons.Default.Notifications)
+        ItemsNav("Indicadores", Icons.Default.Settings),
+        ItemsNav("Contacto", Icons.Default.Notifications)
     )
 
     var selectedIndex by remember { mutableIntStateOf(0) }
@@ -42,7 +43,7 @@ fun NavBar() {
     ) { innerPadding ->
         when (selectedIndex) {
             0 -> HomePage()
-            1 -> SettingsPage()
+            1 -> IndicadoresPage()
             2 -> NotificationsPage(navController = navController)
         }
     }

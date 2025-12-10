@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.practicaprueba.pages.CreaCuenta
-
+import com.example.practicaprueba.pages.CreaUser
 import com.example.practicaprueba.pages.HomeLog
+import com.example.practicaprueba.pages.IndicadoresPage
 import com.example.practicaprueba.pages.RecuPass
 
 
@@ -26,9 +26,21 @@ fun AppNavigation(navController : NavHostController) {
         composable("recuperar") {
             RecuPass(navController)
         }
-        composable("crear") {
-            CreaCuenta(navController)
-        }
-    }
 
+        composable("login") {
+            CajaLog(navController = navController)
+        }
+
+        composable("crear") {
+            CreaUser(navController = navController)
+        }
+        composable("indicadores") {
+            IndicadoresPage()
+        }
+
+    }
 }
+
+
+
+
