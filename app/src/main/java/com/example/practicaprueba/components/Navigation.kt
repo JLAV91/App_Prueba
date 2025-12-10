@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.practicaprueba.pages.CreaUser
 import com.example.practicaprueba.pages.HomeLog
+import com.example.practicaprueba.pages.IndicadoresPage
 import com.example.practicaprueba.pages.RecuPass
 
 
@@ -33,6 +34,10 @@ fun AppNavigation(navController : NavHostController) {
         composable("crear") {
             CreaUser(navController = navController)
         }
+        composable("indicadores") {
+            IndicadoresPage()
+        }
+
     }
 }
 

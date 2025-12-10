@@ -25,24 +25,6 @@ class ValidationUtilsTest {
     }
 
     @Test
-    fun `password vacia retorna mensaje de error`() {
-        val resultado = ValidationUtils.validarPassword("")
-        assertThat(resultado).isEqualTo("La contraseña no puede estar vacía")
-    }
-
-    @Test
-    fun `password corta retorna error`() {
-        val resultado = ValidationUtils.validarPassword("12345")
-        assertThat(resultado).isEqualTo("Debe tener al menos 6 caracteres")
-    }
-
-    @Test
-    fun `password valida retorna null`() {
-        val resultado = ValidationUtils.validarPassword("123456")
-        assertThat(resultado).isNull()
-    }
-
-    @Test
     fun `tests manuales de correos para buscar fallas`() {
         val pruebas = listOf(
             "vito@" to "Ingrese un correo válido",
@@ -62,6 +44,21 @@ class ValidationUtilsTest {
         }
     }
 
+    @Test
+    fun `validar password con multiples casos`() {
+        val pruebas = listOf(
+            "" to "La contraseña no puede estar vacía",
+            " " to "La contraseña no puede estar vacía",
+            "12345" to "Debe tener al menos 6 caracteres",
+            "123456" to null, // válido
+            "password123" to null // válido
+        )
+
+        pruebas.forEach { (input, esperado) ->
+            val resultado = ValidationUtils.validarPassword(input)
+            assertThat(resultado)
+                .`as`("Probando contraseña: '$input'")
+                .isEqualTo(esperado)
+        }
+    }
 }
-
-
