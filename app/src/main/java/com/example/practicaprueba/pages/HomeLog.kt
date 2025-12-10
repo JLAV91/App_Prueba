@@ -32,7 +32,6 @@ fun HomeLog(navController: NavController) {
 
     // Animaciones secuenciales
     LaunchedEffect(Unit) {
-        // 1️⃣ Aparece y crece el logo
         scale.animateTo(
             targetValue = 1.3f,
             animationSpec = tween(1200, easing = FastOutSlowInEasing)
@@ -53,7 +52,7 @@ fun HomeLog(navController: NavController) {
             .fillMaxSize()
             .background(Color.White)
     ) {
-        // Fondo: logo grande y tenue
+
         Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo de fondo",
